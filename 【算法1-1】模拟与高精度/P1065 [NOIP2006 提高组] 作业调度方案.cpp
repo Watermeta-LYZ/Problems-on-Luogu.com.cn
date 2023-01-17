@@ -29,6 +29,9 @@
 
 using namespace std;
 
+const int MAXM = 24, MAXN = 24;
+int steps[MAXN * MAXM], progs[MAXN];  // prog: Progress
+int id[MAXN][MAXM], t[MAXN][MAXM];
 
 int main()
 {
@@ -39,8 +42,28 @@ int main()
     ios::sync_with_stdio(false);
     
     int m, n;
+    int totalTime = 0;
+    MEM(progs, 0);
+
     cin >> m >> n;
-       
+    for (int i = 0; i < n * m; i++)
+        cin >> steps[i];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> id[i][j];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> t[i][j];
     
+    for (int i = 0; i < n * m; i++)
+    {
+        progs[steps[i]]++;
+        
+        int step = steps[i], prog = progs[step];
+        
+    }
+
+    cout << totalTime << endl;
+
     return 0;
 }
